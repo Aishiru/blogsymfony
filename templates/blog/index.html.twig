@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+<!-- {% set c = 0 %} -->
+
+<section class="articles">
+
+    {% for article in articles %}
+
+   <!-- {% if c is divisible by(2)  %}
+    <div class="row">
+    {% endif %}
+    <div class="col"> -->
+        <article>
+                <h2>{{ article.title }}</h2>
+                <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i')}} dans la catégorie {{ article.category.title }}</div>
+                <div class="content">
+                    <div>
+                    <img src=" {{ article.image }} " 0alt="" width="250px" height="180px">
+                    </div>           
+                    {{ article.content | raw}}
+                    <div>
+                    <a href="{{ path('blog_show', {'id':article.id}) }}" class="btn btn-primary">Lire la suite</a>
+                    </div>
+                </div>
+        </article>
+   <!-- </div>
+    {% if c is divisible by(2) %}
+    </div> 
+    {% endif %}
+    {% set c = c +1 %}
+    {% endfor %} -->
+</section>
+
+{% endblock %}
